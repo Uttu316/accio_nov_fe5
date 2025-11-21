@@ -1,0 +1,25 @@
+.header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 4px 4px 4px #ccc;
+}
+
+.header_logo {
+  height: 50px;
+}
+
+.navbar {
+  display: flex;
+  gap: 16px;
+}
+
+.navbar a {
+  font-size: 20px;
+  text-decoration: none;
+  color: teal;
+}
+.navbar a:hover {
+  font-weight: bold;
+}

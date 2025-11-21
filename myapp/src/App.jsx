@@ -1,43 +1,47 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Footer from "./components/footer";
+import Header from "./components/header";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const fname = "Gautam";
+  const lname = "siddharth";
+  const instructor = {
+    name: "Utkarsh",
+    city: "Agra",
+  };
+  const add = (x, y) => {
+    return x + y;
+  };
 
+  const students = [
+    "Abhinav",
+    "Deepika",
+    "Rupali",
+    "Pathmasri",
+    "Gautam",
+    "Gagan",
+  ];
+  const isGreeting = true;
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Header />
+      <div className="main_container">
+        <h1 className="heading">Welcome to React</h1>
+        <h5>with</h5>
+        <h1>{instructor.name}</h1>
+        <h2>{instructor.city}</h2>
+        {add(2, 3)}
+        {add(5, 6)}
+        {isGreeting && <p>Hello</p>}
+        <hr />
+        <h4>Superb Student List:</h4>
+        <ol className="list_container">
+          {students.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ol>
       </div>
-      <h1>Welcome to React </h1>
-      <h5>with</h5>
-      <h1>Utkarsh Gupta</h1>
-      <ul>
-        <li>Gautam</li>
-        <li>Deepika</li>
-        <li>Rupali</li>
-        <li>Ankit</li>
-        <li>Gangandeep</li>
-        <li>Amrit</li>
-      </ul>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Footer />
     </>
   );
 }
