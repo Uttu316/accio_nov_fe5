@@ -1,8 +1,9 @@
 import "./footer.css";
-const Footer = () => {
+const Footer = (props) => {
+  const { companyName } = props;
   return (
     <footer>
-      <p>Made with Love by Accio Students</p>
+      <p>Made with Love by {companyName} Students</p>
     </footer>
   );
 };

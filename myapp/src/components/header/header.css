@@ -23,3 +23,10 @@
 .navbar a:hover {
   font-weight: bold;
 }
+
+.header_left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
