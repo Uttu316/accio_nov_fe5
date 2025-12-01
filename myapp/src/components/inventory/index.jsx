@@ -1,6 +1,7 @@
 import { useState } from "react";
 import InventoryForm from "./inventoryForm";
-
+import InventoryList from "./inventoryList";
+import styles from "./inventory.module.css";
 const Inventory = () => {
   const [productDetails, setProductDetails] = useState({
     name: "",
@@ -8,15 +9,27 @@ const Inventory = () => {
     quantity: "",
     price: "",
   });
+  const [productsList, setProducts] = useState([]);
 
-  console.log(productDetails);
+  const onSubmit = () => {
+    setProducts((curr) => [
+      {
+        ...productDetails,
+        created_at: Date.now(),
+        id: parseInt(Math.random() * 100000),
+      },
+      ...curr,
+    ]);
+  };
 
   return (
-    <div>
+    <div className={styles.inventoryContainer}>
       <InventoryForm
         setProductDetails={setProductDetails}
         productDetails={productDetails}
+        onSubmit={onSubmit}
       />
+      <InventoryList productsList={productsList} />
     </div>
   );
 };
