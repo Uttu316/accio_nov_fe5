@@ -1,0 +1,38 @@
+.counter_container {
+  background-color: beige;
+  border-radius: 12px;
+  box-shadow: 4px 4px 4px #ccc;
+  padding: 40px;
+  margin: 40px;
+}
+
+.counter_text {
+  color: orange;
+  font-size: 42px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.counter_actions {
+  display: flex;
+  margin: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.counter_actions button {
+  padding: 16px;
+  border-radius: 12px;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  min-width: 120px;
+  background-color: gray;
+}
+
+.counter_actions button:first-child {
+  background-color: salmon;
+}

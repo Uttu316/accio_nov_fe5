@@ -1,4 +1,7 @@
 import { useState } from "react";
+import styles from "./counter.module.css";
+
+console.log(styles);
 
 const Counter = () => {
   // let count = 0
@@ -18,10 +21,15 @@ const Counter = () => {
   };
 
   return (
-    <div>
-      <h2 id="Counter_count">{count}</h2>
-      <button onClick={onAdd}>Add</button>
-      <button onClick={onMinus}>Minus</button>
+    <div className={styles.counter_container}>
+      <h2 className={styles.counter_text} id="Counter_count">
+        {count}
+      </h2>
+      <div className={styles.counter_actions}>
+        <button onClick={onAdd}>Add</button>
+        <button onClick={onMinus}>Minus</button>
+      </div>
+
       {count >= 10 && <h3>Limit Reached</h3>}
       {count < 10 && <h4>Add values</h4>}
     </div>
