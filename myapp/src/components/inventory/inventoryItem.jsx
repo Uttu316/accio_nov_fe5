@@ -1,9 +1,21 @@
 import styles from "./inventory.module.css";
+import { MdEdit as EditIcon, MdDelete as DeleteIcon } from "react-icons/md";
 
-const InventoryItem = ({ productDetails }) => {
-  const { name, desc, price, quantity, created_at } = productDetails;
+const InventoryItem = ({
+  productDetails,
+  selected,
+  onDelete,
+  index,
+  onEdit,
+}) => {
+  const { name, desc, price, quantity, created_at, id } = productDetails;
+  const isSelected = selected && selected.id === id;
   return (
-    <div className={styles.productItem}>
+    <div
+      className={`${styles.productItem} ${
+        isSelected ? styles.selectedItem : ""
+      }`}
+    >
       <div className={styles.productTile}>
         <span className={styles.productname}>{name}</span>
         <span className={styles.productCreate}>{created_at}</span>
@@ -14,8 +26,20 @@ const InventoryItem = ({ productDetails }) => {
         <p className={styles.productdesc}> {desc}</p>
       </div>
       <div className={styles.productActions}>
-        <button className={styles.productEdit}>Edit</button>
-        <button className={styles.prodcutDlt}>Delete</button>
+        <button
+          className={styles.productEdit}
+          disabled={selected}
+          onClick={() => onEdit(productDetails, index)}
+        >
+          <EditIcon />
+        </button>
+        <button
+          disabled={selected}
+          className={styles.prodcutDlt}
+          onClick={() => onDelete(id)}
+        >
+          <DeleteIcon />
+        </button>
       </div>
     </div>
   );

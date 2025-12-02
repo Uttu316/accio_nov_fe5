@@ -11,6 +11,11 @@
   flex-direction: column;
   gap: 40px;
 }
+.heading {
+  color: salmon;
+  font-size: 36px;
+  text-transform: capitalize;
+}
 
 /* Form Container */
 .inventoryFormContainer {
@@ -104,6 +109,19 @@
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+.updateProductBtn {
+  width: 100%;
+  max-width: 200px;
+  padding: 14px 24px;
+  border-radius: 8px;
+  border: none;
+  background-color: salmon;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
 .addProductBtn:hover:not(:disabled) {
   background-color: #218838;
@@ -115,6 +133,21 @@
 }
 
 .addProductBtn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.updateProductBtn:hover:not(:disabled) {
+  background-color: rgb(232, 110, 96);
+  transform: translateY(-2px);
+}
+
+.updateProductBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.updateProductBtn:disabled {
   background-color: #6c757d;
   cursor: not-allowed;
   transform: none;
@@ -152,7 +185,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
-
+.selectedItem {
+  background-color: antiquewhite;
+}
 .productItem:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transform: translateY(-2px);
@@ -227,6 +262,10 @@
   background-color: #e0a800;
   transform: translateY(-1px);
 }
+.productEdit:disabled {
+  background-color: lightgray;
+  color: gray;
+}
 
 .prodcutDlt {
   background-color: #dc3545;
@@ -236,6 +275,10 @@
 .prodcutDlt:hover {
   background-color: #c82333;
   transform: translateY(-1px);
+}
+.prodcutDlt:disabled {
+  background-color: lightgray;
+  color: gray;
 }
 
 .productEdit:active,

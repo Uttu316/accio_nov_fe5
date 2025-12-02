@@ -8,7 +8,13 @@ const validateForm = (productDetails) => {
   );
 };
 
-const InventoryForm = ({ productDetails, onSubmit, setProductDetails }) => {
+const InventoryForm = ({
+  selected,
+  productDetails,
+  onSubmit,
+  setProductDetails,
+  onUpdate,
+}) => {
   const isValidated = validateForm(productDetails);
   const onInput = (e) => {
     const label = e.target.name;
@@ -28,6 +34,14 @@ const InventoryForm = ({ productDetails, onSubmit, setProductDetails }) => {
   const onAddProduct = () => {
     if (isValidated) {
       onSubmit();
+      resetForm();
+    } else {
+      // show error to complete the form
+    }
+  };
+  const onUpdateProduct = () => {
+    if (isValidated) {
+      onUpdate();
       resetForm();
     } else {
       // show error to complete the form
@@ -80,13 +94,24 @@ const InventoryForm = ({ productDetails, onSubmit, setProductDetails }) => {
         </div>
       </div>
       <div className={styles.inventoryFormActions}>
-        <button
-          disabled={!isValidated}
-          onClick={onAddProduct}
-          className={styles.addProductBtn}
-        >
-          Add Product
-        </button>
+        {!selected && (
+          <button
+            disabled={!isValidated}
+            onClick={onAddProduct}
+            className={styles.addProductBtn}
+          >
+            Add Product
+          </button>
+        )}
+        {selected && (
+          <button
+            disabled={!isValidated}
+            onClick={onUpdateProduct}
+            className={styles.updateProductBtn}
+          >
+            Update Product
+          </button>
+        )}
       </div>
     </div>
   );
