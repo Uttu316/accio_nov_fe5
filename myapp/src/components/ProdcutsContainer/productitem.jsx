@@ -1,10 +1,11 @@
+import { useCallback } from "react";
 import styles from "./productitem.module.css";
 
 const ProductItem = ({ product }) => {
   const { title, category, price, rating, description, image } = product;
 
   // Generate star rating display
-  const renderStars = (rating) => {
+  const renderStars = useCallback((rating) => {
     const stars = [];
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 !== 0;
@@ -19,7 +20,7 @@ const ProductItem = ({ product }) => {
       stars.push("☆");
     }
     return stars.join("");
-  };
+  }, []);
 
   return (
     <div className={styles.card}>
