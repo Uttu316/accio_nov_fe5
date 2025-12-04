@@ -1,6 +1,7 @@
-export const api = async () => {
+export const api = async ({ endpoint }) => {
+  const URL = "https://fakestoreapi.com" + endpoint;
   try {
-    const res = await fetch("https://fakestoreapi.com/products");
+    const res = await fetch(URL);
     const data = await res.json();
 
     return data;

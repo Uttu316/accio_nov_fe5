@@ -1,8 +1,10 @@
 import { useCallback } from "react";
 import styles from "./productitem.module.css";
+import { useNavigate } from "react-router";
 
 const ProductItem = ({ product }) => {
-  const { title, category, price, rating, description, image } = product;
+  const navigate = useNavigate();
+  const { title, category, price, rating, id, description, image } = product;
 
   // Generate star rating display
   const renderStars = useCallback((rating) => {
@@ -22,8 +24,12 @@ const ProductItem = ({ product }) => {
     return stars.join("");
   }, []);
 
+  const onProductClick = () => {
+    navigate(`/product/${id}`);
+  };
+
   return (
-    <div className={styles.card}>
+    <div onClick={onProductClick} className={styles.card}>
       <div className={styles.imageContainer}>
         <img src={image} alt={title} className={styles.image} />
       </div>

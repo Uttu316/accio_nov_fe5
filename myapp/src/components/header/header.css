@@ -24,6 +24,11 @@
   font-weight: bold;
 }
 
+.navbar a.active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 .header_left {
   display: flex;
   align-items: center;

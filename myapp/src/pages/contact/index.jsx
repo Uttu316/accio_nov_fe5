@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 const ContactPage = () => {
   return (
     <div className={styles.page}>
-      <Header title="MyApp" />
+      <Header title="Contact" />
       <main className={styles.main}>
         <section className={styles.hero}>
           <h1 className={styles.heroTitle}>Contact Us</h1>

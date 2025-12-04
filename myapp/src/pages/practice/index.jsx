@@ -9,7 +9,7 @@ import UserList from "../../components/userList";
 function PracticePage() {
   return (
     <>
-      <Header title={"Home"} />
+      <Header title={"Practice"} />
 
       <div className="main_container">
         <h1 className="heading">Welcome to React</h1>

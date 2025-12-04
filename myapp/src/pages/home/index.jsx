@@ -1,6 +1,7 @@
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import styles from "./index.module.css";
+import { Link } from "react-router";
 
 const HomePage = () => {
   return (
@@ -12,7 +13,9 @@ const HomePage = () => {
           <p className={styles.heroSubtitle}>
             Discover amazing products and services tailored just for you.
           </p>
-          <button className={styles.ctaButton}>Get Started</button>
+          <Link to="/products" className={styles.ctaButton}>
+            Get Started
+          </Link>
         </section>
         <section className={styles.features}>
           <h2 className={styles.sectionTitle}>Why Choose Us?</h2>

@@ -16,7 +16,9 @@ const ProdcutsContainer = () => {
 
   const getProducts = useCallback(async () => {
     try {
-      const data = await api();
+      const data = await api({
+        endpoint: "/products",
+      });
       if (data) {
         setProducts(data);
         setStatus("success");

@@ -5,7 +5,7 @@ import ProdcutsContainer from "../../components/ProdcutsContainer";
 const ProductsPage = () => {
   return (
     <div>
-      <Header />
+      <Header title="Products" />
       <ProdcutsContainer />
       <Footer />
     </div>

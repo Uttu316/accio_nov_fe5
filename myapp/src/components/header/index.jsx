@@ -1,15 +1,20 @@
+import { Link, NavLink } from "react-router";
 import logo from "../../assets/react.svg";
 import "./header.css";
 const Header = (props) => {
   return (
     <header className="header">
       <div className="header_left">
-        <img src={logo} className="header_logo" />
+        <Link to="/">
+          <img src={logo} className="header_logo" />
+        </Link>
         <h2>{props.title || "Hello"}</h2>
       </div>
       <nav className="navbar">
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <NavLink to="/practice">Practice</NavLink>
+        <NavLink to="/products">Products</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
       </nav>
     </header>
   );
