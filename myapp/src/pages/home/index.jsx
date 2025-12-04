@@ -2,11 +2,11 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 import styles from "./index.module.css";
 import { Link } from "react-router";
+import PrageWrapper from "../../components/pageWrapper";
 
 const HomePage = () => {
   return (
-    <div className={styles.page}>
-      <Header title="MyApp" />
+    <PrageWrapper title="Home" className={styles.page}>
       <main className={styles.main}>
         <section className={styles.hero}>
           <h1 className={styles.heroTitle}>Welcome to MyApp</h1>
@@ -37,8 +37,7 @@ const HomePage = () => {
           </div>
         </section>
       </main>
-      <Footer companyName="Accio" />
-    </div>
+    </PrageWrapper>
   );
 };
 

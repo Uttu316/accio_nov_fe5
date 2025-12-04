@@ -1,14 +1,13 @@
 import Footer from "../../components/footer";
 import Header from "../../components/header";
+import PrageWrapper from "../../components/pageWrapper";
 import ProdcutsContainer from "../../components/ProdcutsContainer";
 
 const ProductsPage = () => {
   return (
-    <div>
-      <Header title="Products" />
+    <PrageWrapper title="Products">
       <ProdcutsContainer />
-      <Footer />
-    </div>
+    </PrageWrapper>
   );
 };
 export default ProductsPage;

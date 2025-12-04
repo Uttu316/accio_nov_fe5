@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import Header from "../../components/header";
-import Footer from "../../components/footer";
+
 import styles from "./index.module.css";
 import { useParams } from "react-router";
 import { api } from "../../services";
+import PrageWrapper from "../../components/pageWrapper";
 
 const ProductPage = () => {
   const { productId } = useParams(); // extract dynmaic parameter from url
@@ -59,8 +59,7 @@ const ProductPage = () => {
   };
 
   return (
-    <div className={styles.page}>
-      <Header title="Product Details" />
+    <PrageWrapper title="Product Details" className={styles.page}>
       <div className={styles.productContainer}>
         {isLoading && <div className={styles.loading}>Loading product...</div>}
         {isError && (
@@ -97,8 +96,7 @@ const ProductPage = () => {
           </>
         )}
       </div>
-      <Footer companyName="AccioJob" />
-    </div>
+    </PrageWrapper>
   );
 };
 

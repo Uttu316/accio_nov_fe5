@@ -3,11 +3,11 @@ import Footer from "../../components/footer";
 import styles from "./index.module.css";
 import { Link } from "react-router";
 import notfoundImg from "../../assets/notfound.svg";
+import PrageWrapper from "../../components/pageWrapper";
 
 const NotFoundPage = () => {
   return (
-    <div className={styles.page}>
-      <Header title="My App" />
+    <PrageWrapper title="My App" className={styles.page}>
       <main className={styles.main}>
         <section className={styles.notFoundSection}>
           <div className={styles.notFoundContent}>
@@ -33,8 +33,7 @@ const NotFoundPage = () => {
           </div>
         </section>
       </main>
-      <Footer companyName="Accio" />
-    </div>
+    </PrageWrapper>
   );
 };
 
