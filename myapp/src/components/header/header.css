@@ -19,6 +19,7 @@
   font-size: 20px;
   text-decoration: none;
   color: teal;
+  position: relative;
 }
 .navbar a:hover {
   font-weight: bold;
@@ -34,4 +35,17 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+.badge {
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-left: 4px;
+  font-weight: bold;
+  position: absolute;
+  top: -8px;
+  right: -10px;
 }

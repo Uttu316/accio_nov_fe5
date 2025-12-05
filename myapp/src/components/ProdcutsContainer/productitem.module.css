@@ -101,6 +101,19 @@
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
+.removeCartbutton {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, orange 0%, salmon 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
 .button:hover {
   background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
   transform: translateY(-2px);

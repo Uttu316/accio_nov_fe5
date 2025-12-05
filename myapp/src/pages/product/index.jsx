@@ -1,12 +1,15 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 
 import styles from "./index.module.css";
 import { useParams } from "react-router";
 import { api } from "../../services";
 import PrageWrapper from "../../components/pageWrapper";
+import { CartContext } from "../../contexts/CartContext";
 
 const ProductPage = () => {
   const { productId } = useParams(); // extract dynmaic parameter from url
+
+  const { addToCart, isInCart, removeFromCart } = useContext(CartContext);
 
   const [status, setStatus] = useState("loading");
   const [product, setProduct] = useState(null);
@@ -54,8 +57,13 @@ const ProductPage = () => {
     return stars.join("");
   }, []);
 
-  const handleAddToCart = () => {
-    alert("Added to cart!");
+  const incart = isInCart(productId);
+
+  const onRemoveCart = () => {
+    removeFromCart(productId);
+  };
+  const onAddCart = () => {
+    addToCart(product);
   };
 
   return (
@@ -89,9 +97,19 @@ const ProductPage = () => {
                 </span>
               </div>
               <p className={styles.description}>{product.description}</p>
-              <button className={styles.button} onClick={handleAddToCart}>
-                Add to Cart
-              </button>
+              {!incart && (
+                <button className={styles.button} onClick={onAddCart}>
+                  Add to Cart
+                </button>
+              )}
+              {incart && (
+                <button
+                  className={styles.removeCartbutton}
+                  onClick={onRemoveCart}
+                >
+                  Remove from Cart
+                </button>
+              )}
             </div>
           </>
         )}

@@ -1,9 +1,13 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import styles from "./productitem.module.css";
 import { useNavigate } from "react-router";
+import { CartContext } from "../../contexts/CartContext";
 
 const ProductItem = ({ product }) => {
   const navigate = useNavigate();
+
+  const { addToCart, isInCart, removeFromCart } = useContext(CartContext);
+
   const { title, category, price, rating, id, description, image } = product;
 
   // Generate star rating display
@@ -27,6 +31,17 @@ const ProductItem = ({ product }) => {
   const onProductClick = () => {
     navigate(`/product/${id}`);
   };
+  const onAddCart = (e) => {
+    e.stopPropagation();
+    addToCart(product);
+  };
+
+  const onRemove = (e) => {
+    e.stopPropagation();
+    removeFromCart(id);
+  };
+
+  const inCart = isInCart(id);
 
   return (
     <div onClick={onProductClick} className={styles.card}>
@@ -42,7 +57,16 @@ const ProductItem = ({ product }) => {
           <span className={styles.reviews}>({rating.count} reviews)</span>
         </div>
         <p className={styles.description}>{description}</p>
-        <button className={styles.button}>Add to Cart</button>
+        {!inCart && (
+          <button onClick={onAddCart} className={styles.button}>
+            Add to Cart
+          </button>
+        )}
+        {inCart && (
+          <button onClick={onRemove} className={styles.removeCartbutton}>
+            Remove from Cart
+          </button>
+        )}
       </div>
     </div>
   );
